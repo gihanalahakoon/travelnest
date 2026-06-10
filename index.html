@@ -40,13 +40,15 @@
       <div class="hero-content container">
         <div class="hero-text">
           <h1>Discover Your Next<br><span>Adventure</span></h1>
-          <p id="hero-quote">"The world is a book and those who do not travel read only one page."</p>
+          <!-- FIX: wrapped quote in .hero-quote-wrap for contrast overlay -->
+          <p id="hero-quote" class="hero-quote">"The world is a book and those who do not travel read only one page."</p>
           <div class="hero-cta">
             <a href="explorer.html" class="btn btn-orange">Explore Destinations</a>
             <a href="planner.html" class="btn btn-outline">Plan a Trip</a>
           </div>
         </div>
-        <div class="hero-card">
+        <!-- FIX: added hero-card-accessible class for contrast overlay -->
+        <div class="hero-card hero-card-accessible">
           <h2>&#9992;&#65039; Quick Overview</h2>
           <div class="stat-row">
             <span class="stat-label">Destinations</span>
@@ -147,9 +149,11 @@
   </footer>
 
   <!-- Modal -->
+  <!-- FIX: added <h2 id="modalTitle"> so aria-labelledby="modalTitle" resolves correctly -->
   <div id="destModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal()" aria-label="Close modal">&times;</button>
+      <h2 id="modalTitle" class="sr-only">Destination Details</h2>
       <div id="modalBody"></div>
     </div>
   </div>
