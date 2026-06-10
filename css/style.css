@@ -7,7 +7,7 @@
   --blue:       #2563eb;
   --blue-dark:  #1d4ed8;
   --blue-light: #eff6ff;
-  --orange:     #f97316;
+  --orange:     #c2540a; /* darkened from #f97316 — white text now passes WCAG AA 4.5:1 */
   --dark:       #1e293b;
   --text:       #334155;
   --muted:      #64748b;
@@ -649,7 +649,7 @@ header {
   display: flex;
   justify-content: space-between;
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.7); /* was 0.35 — failed contrast against dark bg */
   flex-wrap: wrap;
   gap: 8px;
 }
