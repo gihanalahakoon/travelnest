@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelNest | Trip Budget Planner</title>
+  <meta name="description" content="Calculate your trip budget, see your spending status, and save your plans.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar container">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="TravelNest Logo" class="logo-img">
+        <h2>Travel<span>Nest</span></h2>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
+        <li><a href="planner.html" class="active">Planner</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="mood.html">Mood</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Trip Budget Planner</h1>
+      <p>Enter your destination, trip length, and daily budget to get an instant estimate.</p>
+    </div>
+  </div>
+
+  <main class="container form-section">
+
+    <div class="planner-grid reveal">
+      <!-- Form -->
+      <div class="form-card">
+        <h2 style="margin-bottom:24px;">Calculate Your Budget</h2>
+        <form id="budgetForm" novalidate>
+          <div class="input-group">
+            <label for="plan-dest">Destination</label>
+            <input type="text" id="plan-dest" placeholder="e.g. Dubrovnik" required>
+          </div>
+          <div class="input-group">
+            <label for="plan-days">Number of Days</label>
+            <input type="number" id="plan-days" min="1" max="365" placeholder="7" required>
+          </div>
+          <div class="input-group">
+            <label for="plan-daily">Daily Budget (€)</label>
+            <input type="number" id="plan-daily" min="1" placeholder="120" required>
+          </div>
+          <button type="submit" class="btn" style="width:100%;">Calculate Total</button>
+        </form>
+      </div>
+
+      <!-- Result -->
+      <div class="form-card result-card" id="resultCard">
+        <h3 style="margin-bottom:8px;">Trip Summary</h3>
+        <div class="result-total" id="result-total">€0</div>
+        <div id="budgetStatus" class="budget-status status-mod">Moderate</div>
+        <div class="progress-container">
+          <div class="progress-bar" id="budgetBar"></div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);margin:6px 0 20px;">Shown relative to a €3,000 benchmark</p>
+        <button class="btn" id="saveBudgetBtn" style="width:100%;">Save This Budget</button>
+      </div>
+    </div>
+
+    <!-- Saved Budgets -->
+    <div class="saved-section reveal">
+      <h2>Saved Budgets</h2>
+      <div id="savedPlansContainer"></div>
+    </div>
+
+    <!-- Modal (for destination detail if navigated here) -->
+    <div id="destModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()" aria-label="Close">&times;</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h3>Travel<span>Nest</span></h3>
+          <p>Helping you explore, plan, and dream.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="explorer.html">Destination Explorer</a>
+          <a href="generator.html">Trip Generator</a>
+          <a href="mood.html">Travel Mood</a>
+          <a href="support.html">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@travelnest.com</p>
+          <p>Staffordshire, UK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TravelNest. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

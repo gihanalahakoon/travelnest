@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelNest | Plan Your Next Adventure</title>
+  <meta name="description" content="TravelNest helps you explore destinations, plan trip budgets, and track your travel journey — all in one place.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar container">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="TravelNest Logo" class="logo-img">
+        <h2>Travel<span>Nest</span></h2>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="mood.html">Mood</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-content container">
+        <div class="hero-text">
+          <h1>Discover Your Next<br><span>Adventure</span></h1>
+          <p id="hero-quote">"The world is a book and those who do not travel read only one page."</p>
+          <div class="hero-cta">
+            <a href="explorer.html" class="btn btn-orange">Explore Destinations</a>
+            <a href="planner.html" class="btn btn-outline">Plan a Trip</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>&#9992;&#65039; Quick Overview</h2>
+          <div class="stat-row">
+            <span class="stat-label">Destinations</span>
+            <span class="stat-val">5</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Continents Covered</span>
+            <span class="stat-val">4</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Budget Ranges</span>
+            <span class="stat-val">3</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Travel Types</span>
+            <span class="stat-val">4</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTINATION OF THE DAY -->
+    <section class="daily-section container reveal">
+      <div class="section-header">
+        <h2>Destination of the Day</h2>
+        <p>A fresh travel inspiration, updated daily.</p>
+        <div class="divider"></div>
+      </div>
+      <div id="daily-card-container"></div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Everything You Need to Travel Smarter</h2>
+          <p>TravelNest brings together planning tools and inspiration in one simple place.</p>
+          <div class="divider"></div>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <div class="feature-icon">&#127757;</div>
+            <h3>Destination Explorer</h3>
+            <p>Browse curated destinations with photos, descriptions, and cost breakdowns. Filter by continent or search by name.</p>
+            <br>
+            <a href="explorer.html" class="btn">Browse Destinations</a>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">&#128180;</div>
+            <h3>Trip Budget Planner</h3>
+            <p>Enter your destination, number of days, and daily budget to get an instant total estimate and budget rating.</p>
+            <br>
+            <a href="planner.html" class="btn">Plan Your Budget</a>
+          </div>
+          <div class="feature-card reveal">
+            <div class="feature-icon">&#127922;</div>
+            <h3>Random Trip Generator</h3>
+            <p>Not sure where to go? Choose your travel style and budget, and we'll suggest a destination for you.</p>
+            <br>
+            <a href="generator.html" class="btn">Surprise Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h3>Travel<span>Nest</span></h3>
+          <p>Helping you explore, plan, and dream — all in one place. Built with HTML, CSS and JavaScript.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="explorer.html">Destination Explorer</a>
+          <a href="planner.html">Budget Planner</a>
+          <a href="generator.html">Trip Generator</a>
+          <a href="mood.html">Travel Mood</a>
+          <a href="support.html">Support &amp; FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p>Get travel inspiration to your inbox.</p>
+          <form id="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="your@email.com" aria-label="Email address">
+            <button type="submit">Subscribe</button>
+          </form>
+          <p id="newsletter-msg" style="margin-top:8px;font-size:.8rem;color:#86efac;"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TravelNest. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="destModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()" aria-label="Close modal">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Newsletter form
+    const nForm = document.getElementById('newsletter-form');
+    if (nForm) {
+      nForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value.trim();
+        if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          localStorage.setItem('newsletterEmail', email);
+          document.getElementById('newsletter-msg').textContent = 'Subscribed! Thank you.';
+          document.getElementById('newsletter-email').value = '';
+        } else {
+          document.getElementById('newsletter-msg').textContent = 'Please enter a valid email.';
+          document.getElementById('newsletter-msg').style.color = '#fca5a5';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

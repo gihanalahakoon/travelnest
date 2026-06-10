@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelNest | Destination Explorer</title>
+  <meta name="description" content="Browse and filter travel destinations. Click any card for details, attractions, and cost estimates.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar container">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="TravelNest Logo" class="logo-img">
+        <h2>Travel<span>Nest</span></h2>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explorer.html" class="active">Explorer</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="mood.html">Mood</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Destination Explorer</h1>
+      <p>Browse our curated destinations. Click a card to see full details, attractions, and costs.</p>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top:40px;">
+
+    <div class="filter-bar reveal">
+      <input type="text" id="searchInput" placeholder="Search by name or country..." aria-label="Search destinations">
+      <select id="continentFilter" aria-label="Filter by continent">
+        <option value="all">All Continents</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia">Asia</option>
+        <option value="Americas">Americas</option>
+        <option value="Africa">Africa</option>
+      </select>
+    </div>
+
+    <div class="destinations-grid reveal" id="destinationsGrid"></div>
+
+    <!-- Modal -->
+    <div id="destModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()" aria-label="Close modal">&times;</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Travel<span>Nest</span></h2>
+          <p>Helping you explore, plan, and dream — all in one place.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigate</h3>
+          <a href="index.html">Home</a>
+          <a href="planner.html">Budget Planner</a>
+          <a href="generator.html">Trip Generator</a>
+          <a href="mood.html">Travel Mood</a>
+          <a href="support.html">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@travelnest.com</p>
+          <p>Staffordshire, UK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TravelNest. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/explorer.js"></script>
+</body>
+</html>

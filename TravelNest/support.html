@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelNest | Support &amp; FAQ</title>
+  <meta name="description" content="Get help, read our FAQ, or send us your feedback.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar container">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="TravelNest Logo" class="logo-img">
+        <h2>Travel<span>Nest</span></h2>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="mood.html">Mood</a></li>
+        <li><a href="support.html" class="active">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Support &amp; Feedback</h1>
+      <p>Have a question or something to share? We'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top:40px;">
+
+    <div class="support-grid reveal">
+
+      <!-- FAQ -->
+      <div>
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              How do I track visited destinations?
+              <span>+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Head to the <strong>Travel Mood</strong> page. Each destination card has a "Mark Visited" and a "Plan Trip" button. Your selections are saved in your browser automatically.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Where is my data stored?
+              <span>+</span>
+            </div>
+            <div class="accordion-content">
+              <p>All data — including saved budgets, your wishlist, newsletter email, and feedback — is stored in your browser's <strong>localStorage</strong>. Nothing is sent to an external server.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Can I suggest a new destination?
+              <span>+</span>
+            </div>
+            <div class="accordion-content">
+              <p>Absolutely. Use the feedback form on this page to share your suggestion and we will consider adding it in a future update.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              Does TravelNest work offline?
+              <span>+</span>
+            </div>
+            <div class="accordion-content">
+              <p>TravelNest is a Progressive Web App (PWA). Once you've visited the site, core assets are cached by the service worker, so the site will continue to work without an internet connection.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              How does the Random Trip Generator work?
+              <span>+</span>
+            </div>
+            <div class="accordion-content">
+              <p>The generator filters destinations from the built-in dataset based on the travel type and budget range you select, then randomly picks one from the matching results.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Feedback Form -->
+      <div>
+        <h2>Send Us Feedback</h2>
+        <div class="form-card">
+          <form id="feedbackForm" novalidate>
+            <div class="input-group">
+              <label for="fb-name">Full Name</label>
+              <input type="text" id="fb-name" placeholder="Jane Smith" required>
+            </div>
+            <div class="input-group">
+              <label for="fb-email">Email Address</label>
+              <input type="email" id="fb-email" placeholder="jane@example.com" required>
+            </div>
+            <div class="input-group">
+              <label for="fb-message">Message</label>
+              <textarea id="fb-message" placeholder="Tell us what you think..." required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Submit Feedback</button>
+            <p id="fb-status" role="alert"></p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h3>Travel<span>Nest</span></h3>
+          <p>Helping you explore, plan, and dream.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="explorer.html">Destination Explorer</a>
+          <a href="planner.html">Budget Planner</a>
+          <a href="generator.html">Trip Generator</a>
+          <a href="mood.html">Travel Mood</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@travelnest.com</p>
+          <p>Staffordshire, UK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TravelNest. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/support.js"></script>
+</body>
+</html>

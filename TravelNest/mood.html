@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelNest | Travel Mood</title>
+  <meta name="description" content="Play ambient travel sounds and track which destinations you have visited or planned.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar container">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="TravelNest Logo" class="logo-img">
+        <h2>Travel<span>Nest</span></h2>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="generator.html">Generator</a></li>
+        <li><a href="mood.html" class="active">Mood</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Travel Mood</h1>
+      <p>Play ambient sounds and track the destinations you have visited or plan to visit.</p>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top:40px;padding-bottom:60px;">
+
+    <!-- Ambient Sounds -->
+    <section aria-label="Ambient Sounds">
+      <div class="section-header" style="padding-top:0;text-align:left;">
+        <h2>Ambient Sounds</h2>
+        <p>Click a button to play an ambient travel atmosphere.</p>
+      </div>
+      <div class="sound-grid reveal">
+        <div class="sound-card">
+          <span class="sound-icon">&#127958;&#65039;</span>
+          <h3>Beach</h3>
+          <p>Ocean waves, seagulls, and a gentle sea breeze.</p>
+          <button class="btn play-btn" data-sound="beach">&#9654; Play Sound</button>
+          <audio id="beach-audio" src="assets/audio/beach.mp3" loop></audio>
+        </div>
+        <div class="sound-card">
+          <span class="sound-icon">&#127795;</span>
+          <h3>Forest</h3>
+          <p>Birdsong, rustling leaves, and running water.</p>
+          <button class="btn play-btn" data-sound="forest">&#9654; Play Sound</button>
+          <audio id="forest-audio" src="assets/audio/forest.mp3" loop></audio>
+        </div>
+        <div class="sound-card">
+          <span class="sound-icon">&#127750;</span>
+          <h3>City</h3>
+          <p>Urban background noise, traffic, and street life.</p>
+          <button class="btn play-btn" data-sound="city">&#9654; Play Sound</button>
+          <audio id="city-audio" src="assets/audio/city.mp3" loop></audio>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trip Tracking -->
+    <section aria-label="Trip Tracking" style="margin-top:48px;">
+      <div class="section-header" style="padding-top:0;text-align:left;">
+        <h2>Track Your Adventures</h2>
+        <p>Mark destinations as Visited or Planned. Your selections are saved automatically.</p>
+      </div>
+      <div class="destinations-grid reveal" id="trackingGrid"></div>
+    </section>
+
+    <!-- Modal -->
+    <div id="destModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()" aria-label="Close">&times;</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h3>Travel<span>Nest</span></h3>
+          <p>Helping you explore, plan, and dream.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="explorer.html">Destination Explorer</a>
+          <a href="planner.html">Budget Planner</a>
+          <a href="generator.html">Trip Generator</a>
+          <a href="support.html">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@travelnest.com</p>
+          <p>Staffordshire, UK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TravelNest. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const trackingGrid = document.getElementById('trackingGrid');
+    if (trackingGrid && typeof destinations !== 'undefined') {
+      function renderTrack() {
+        trackingGrid.innerHTML = destinations.map(d => {
+          const visited = !!localStorage.getItem('track_' + d.id + '_visited');
+          const planned = !!localStorage.getItem('track_' + d.id + '_planned');
+          return `
+            <div class="dest-card">
+              <img src="${d.img}" alt="${d.name}">
+              <div class="dest-card-info">
+                <span class="continent-tag">${d.continent}</span>
+                <h3>${d.name}</h3>
+                <p>${d.country}</p>
+                <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+                  <button class="btn track-btn" data-id="${d.id}" data-type="visited"
+                    style="font-size:.78rem;padding:6px 12px;${visited ? 'background:#16a34a;' : ''}">
+                    ${visited ? '&#10003; Visited' : 'Mark Visited'}
+                  </button>
+                  <button class="btn track-btn" data-id="${d.id}" data-type="planned"
+                    style="font-size:.78rem;padding:6px 12px;${planned ? 'background:var(--orange);' : 'background:var(--dark);'}">
+                    ${planned ? '&#10003; Planned' : 'Plan Trip'}
+                  </button>
+                </div>
+              </div>
+            </div>`;
+        }).join('');
+        document.querySelectorAll('.track-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const key = 'track_' + btn.dataset.id + '_' + btn.dataset.type;
+            if (localStorage.getItem(key)) localStorage.removeItem(key);
+            else localStorage.setItem(key, '1');
+            renderTrack();
+          });
+        });
+      }
+      renderTrack();
+    }
+  </script>
+</body>
+</html>

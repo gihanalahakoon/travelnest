@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelNest | Random Trip Generator</title>
+  <meta name="description" content="Can't decide where to go? Let TravelNest pick your next adventure based on your travel style and budget.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar container">
+      <a class="logo" href="index.html">
+        <img src="assets/images/logo.png" alt="TravelNest Logo" class="logo-img">
+        <h2>Travel<span>Nest</span></h2>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="generator.html" class="active">Generator</a></li>
+        <li><a href="mood.html">Mood</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Random Trip Generator</h1>
+      <p>Pick your travel style and budget range, then let us suggest somewhere to go.</p>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top:40px;padding-bottom:60px;">
+
+    <div class="generator-controls reveal">
+      <div class="filter-group">
+        <label for="gen-type">Travel Type</label>
+        <select id="gen-type" aria-label="Select travel type">
+          <option value="adventure">Adventure</option>
+          <option value="relaxation">Relaxation</option>
+          <option value="cultural">Cultural</option>
+          <option value="nature">Nature</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="gen-budget">Budget Range</label>
+        <select id="gen-budget" aria-label="Select budget range">
+          <option value="low">Low (under €100/day)</option>
+          <option value="medium">Medium (€100–€150/day)</option>
+          <option value="high">High (€150+/day)</option>
+        </select>
+      </div>
+      <button id="surpriseBtn" class="btn btn-orange" style="align-self:flex-end;">Surprise Me!</button>
+    </div>
+
+    <div id="generatorResult" class="generator-result">
+      <div class="placeholder-box">
+        <p>Select your preferences above and click Surprise Me!</p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="destModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal()" aria-label="Close">&times;</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Travel<span>Nest</span></h2>
+          <p>Helping you explore, plan, and dream.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navigate</h3>
+          <a href="index.html">Home</a>
+          <a href="explorer.html">Destination Explorer</a>
+          <a href="planner.html">Budget Planner</a>
+          <a href="mood.html">Travel Mood</a>
+          <a href="support.html">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>hello@travelnest.com</p>
+          <p>Staffordshire, UK</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TravelNest. All rights reserved.</span>
+        <span>Built with HTML, CSS &amp; JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
